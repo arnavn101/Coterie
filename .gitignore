@@ -132,3 +132,4 @@ dmypy.json
 !Coterie-*.png
 !endpoints_sn*.png
 .DS_Store
+!docs/*.png
