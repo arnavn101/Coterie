@@ -43,3 +43,8 @@ pip3 install -r requirements.txt
 ![Coterie](/docs/endpoints_sneak_peak.png)
 
 Full version at: [endpoints.md](/backEnd/docs/endpoints.md)
+
+## App Views
+Login View                 |  Home View               |  Profile View
+:-------------------------:|:-------------------------:|:-------------------------:
+![](docs/app-views/login-view.png)  |  ![](docs/app-views/home-view.png)  |  ![](docs/app-views/profile-view.png)
