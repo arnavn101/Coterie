@@ -1,2 +1,2 @@
 # Coterie
-Social media app to promotes in-person socialization
+Social media app to promote in-person socialization

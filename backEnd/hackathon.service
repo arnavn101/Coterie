@@ -1,0 +1,13 @@
+[Unit]
+Description=DjangoAPP for Platform
+After=network.target
+
+[Service]
+User=hack
+Group=hack
+WorkingDirectory=/home/hack/HackathonProjectBackend
+Environment="PATH=/home/hack/HackathonProjectBackend:/usr/bin:/bin"
+ExecStart=/usr/bin/python3.8 manage.py runserver 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target

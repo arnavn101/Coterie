@@ -1,0 +1,61 @@
+# Register Account
+curl -X POST  "http://127.0.0.1:8000/auth/account/create" \
+                          -d email_address=john.doe@gmail.com \
+                           -d password=passwordThis123
+
+# Login Account
+curl -X POST  "http://127.0.0.1:8000/auth/account/login" \
+                          -d email_address=john.doe@gmail.com \
+                           -d password=passwordThis123
+
+# Get Account Details Based on token_user
+curl -X GET "https://hackathon-project-umass.herokuapp.com/profile/details?token_user=b9a66919bcd65f621715da2a8b9d90e69bd2fb1a"
+
+# Get Account Details Based on uid
+curl -X GET "http://127.0.0.1:8000/profile/details?uid=1"
+
+# Create Profile Details Based on token_user
+curl -F "profile_picture_data=@test_png.png" \
+      -F token_user=b9a66919bcd65f621715da2a8b9d90e69bd2fb1a \
+      -F first_name=Joe \
+      -F last_name=don \
+      -F categories_selected=['a', 'b', 'c'] \
+      "http://127.0.0.1:8000/profile/manage"
+
+# Post coords data based on token_user
+curl -X POST \
+-d token_user=b9a66919bcd65f621715da2a8b9d90e69bd2fb1a \
+-d latitude=20.543456 \
+-d longitude=78.678983 \
+"http://127.0.0.1:8000/location/coords"
+
+# Post bluetooth data based on token_user
+curl -X POST \
+-d token_user=b3c7a49ff00fb180e75d0238216ff647cec9af90 \
+-d devices_nearby='{["a", "b"]}' \
+"http://127.0.0.1:8000/location/bluetooth"
+
+# Create a Match Request given token_user and corresponding uid
+curl -X POST \
+-d token_user=9d51ebe2f67c935e22e01681e53eef86cfefa321 \
+-d uid=4 \
+"http://127.0.0.1:8000/matches/request/send"
+
+#Accept the Match Request given token_user and corresponding uid
+curl -X POST \
+-d token_user=9d51ebe2f67c935e22e01681e53eef86cfefa321 \
+-d uid=4 \
+"http://127.0.0.1:8000/matches/request/accept"
+
+#Reject the Match Request given token_user and corresponding uid
+curl -X POST \
+-d token_user=1a061df9123cb0a5866432e17cf466b41c1d1189 \
+-d uid=5 \
+"http://127.0.0.1:8000/matches/request/reject"
+
+
+#Cancel the Match Request given token_user and corresponding uid
+curl -X POST \
+-d token_user=9d51ebe2f67c935e22e01681e53eef86cfefa321 \
+-d uid=4 \
+"http://127.0.0.1:8000/matches/request/cancel"
